@@ -9,6 +9,8 @@ import flixel.FlxSprite;
 import android.FlxHitbox;
 import android.AndroidControls.Config;
 import android.FlxVirtualPad;
+import meta.MusicBeat.MusicBeatState;
+import meta.state.menus.OptionsMenuState;
 
 using StringTools;
 
@@ -47,11 +49,11 @@ class AndroidControlsMenu extends MusicBeatState
 		titleText.alpha = 0.4;
 		add(titleText);
 
-		vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+		vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, !Init.trueSettings.get('Disable Antialiasing'));
 		vpad.alpha = 0;
 		add(vpad);
 
-		hbox = new FlxHitbox(0.75, ClientPrefs.globalAntialiasing);
+		hbox = new FlxHitbox(0.75, !Init.trueSettings.get('Disable Antialiasing'));
 		hbox.visible = false;
 		add(hbox);
 
@@ -128,7 +130,7 @@ class AndroidControlsMenu extends MusicBeatState
 		if (FlxG.android.justReleased.BACK)
 		{
 			save();
-			MusicBeatState.switchState(new options.OptionsState());
+			Main.switchState(this, new OptionsMenuState());
 		}
 		#end
 	}
@@ -150,20 +152,20 @@ class AndroidControlsMenu extends MusicBeatState
 		{
 				case 'Pad-Right':
 					remove(vpad);
-					vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+					vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, !Init.trueSettings.get('Disable Antialiasing'));
 					add(vpad);
 				case 'Pad-Left':
 					remove(vpad);
-					vpad = new FlxVirtualPad(FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+					vpad = new FlxVirtualPad(FULL, NONE, 0.75, !Init.trueSettings.get('Disable Antialiasing'));
 					add(vpad);
 				case 'Pad-Custom':
 					remove(vpad);
-					vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+					vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, !Init.trueSettings.get('Disable Antialiasing'));
 					add(vpad);
 					loadcustom();
 				case 'Duo':
 					remove(vpad);
-					vpad = new FlxVirtualPad(DUO, NONE, 0.75, ClientPrefs.globalAntialiasing);
+					vpad = new FlxVirtualPad(DUO, NONE, 0.75, !Init.trueSettings.get('Disable Antialiasing'));
 					add(vpad);
 				case 'Hitbox':
 					vpad.alpha = 0;
