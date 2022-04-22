@@ -103,7 +103,7 @@ class DialogueBox extends FlxSpriteGroup
 		var truePath = Paths.file(file);
 
 		// load the json file
-		if (sys.FileSystem.exists(dialoguePath))
+		if (sys.FileSystem.exists(SUtil.getPath() + dialoguePath))
 			return dialoguePath;
 		else
 			return truePath;
