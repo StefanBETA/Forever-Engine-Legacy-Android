@@ -7,9 +7,6 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.util.FlxColor;
-import haxe.CallStack.StackItem;
-import haxe.CallStack;
-import haxe.io.Path;
 import lime.app.Application;
 import meta.*;
 import meta.data.PlayerSettings;
@@ -21,10 +18,6 @@ import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
-import openfl.events.UncaughtErrorEvent;
-import sys.FileSystem;
-import sys.io.File;
-import sys.io.Process;
 
 // Here we actually import the states and metadata, and just the metadata.
 // It's nice to have modularity so that we don't have ALL elements loaded at the same time.
